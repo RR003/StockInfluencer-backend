@@ -11,9 +11,9 @@ export default class Router extends Component {
         return(
             <BrowserRouter>
                 <Header/>
-                <Route path = "/home" component={Home}/>
+                {/* <Route path = "/home" component={Home}/>
                 <Route path = "/trending" component={Trending}/>
-                <Route path = "/about" component={About}/>
+                <Route path = "/about" component={About}/> */}
             </BrowserRouter>
         )
     }
