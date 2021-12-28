@@ -7,6 +7,6 @@ const app = express();
 app.use(cors());
 app.use("/twitter", twitterRoutes);
 
-const port = 5001;
+const port = process.env.PORT;
 
 app.listen(port, () => console.log(`Server running on port: ${port}`));
