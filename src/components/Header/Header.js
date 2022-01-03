@@ -7,12 +7,13 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 const Header = () => (
   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <Container>
-      <Navbar.Brand href="#home">TweetInfluencer</Navbar.Brand>
+      <Navbar.Brand href="#home">Stockfluence</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
           <Nav.Link href="#getStarted">Get Started</Nav.Link>
           <Nav.Link href="#about">About</Nav.Link>
+          <Nav.Link href="#allStocks">All Stocks</Nav.Link>
           <NavDropdown title="Stocks" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Tesla</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">GameStop</NavDropdown.Item>
