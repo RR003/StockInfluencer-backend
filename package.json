@@ -12,12 +12,15 @@
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.16.5",
+    "@polygon.io/client-js": "^4.0.3",
     "axios": "^0.24.0",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "finnhub": "^1.2.9",
     "mongoose": "^6.1.2",
     "nodemon": "^2.0.15",
+    "robinhood": "^1.8.0",
     "twitter": "^1.7.1"
   }
 }

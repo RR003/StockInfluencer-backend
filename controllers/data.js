@@ -1,4 +1,7 @@
 import finnhub from "finnhub";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const api_key = finnhub.ApiClient.instance.authentications["api_key"];
 api_key.apiKey = process.env.FINNHUB_API_KEY;
@@ -48,6 +51,7 @@ export const get24HourChange = async (req, res) => {
   let { stock } = req.params;
   stock = stock.toUpperCase();
   let { date } = req.params;
+  console.log(date);
   stock = stock.toUpperCase();
   finnhubClient.stockCandles(
     stock,
