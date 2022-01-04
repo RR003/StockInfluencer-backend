@@ -13,7 +13,7 @@ function HeroSection() {
           className="btns"
           buttonStyle="btn--outline"
           buttonSize="btn--large"
-          onClick={console.log("Get Started Button")}
+          onClick={console.log("Get Started BTN")}
         >
           GET STARTED
         </Button>
