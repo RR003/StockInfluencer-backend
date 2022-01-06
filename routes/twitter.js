@@ -10,7 +10,11 @@ import {
   getHistoricalData,
   get24HourChange,
 } from "../controllers/data.js";
-import { getTempHistoricalData, getChartData } from "../controllers/polygon.js";
+import {
+  getTempHistoricalData,
+  getChartData,
+  getChartDataCrypto,
+} from "../controllers/polygon.js";
 
 const router = express.Router();
 
@@ -19,8 +23,9 @@ router.get("/tweetLookup/:stock", getTweets);
 router.get("/userLookup/:username", getUsername);
 router.get("/stockLookup/:stock", getInfo);
 router.get("/chartdata/:stock", getChartData);
+router.get("/chartdatacrypto/:stock", getChartDataCrypto);
 router.get("/24hrchange/:stock/:date", get24HourChange);
 router.get("/tempchange/:stock/:date", getTempHistoricalData);
-router.get("/getPopularTweets/:query", getPopularTweets);
+router.get("/getPopularTweets/:query/:count", getPopularTweets);
 
 export default router;

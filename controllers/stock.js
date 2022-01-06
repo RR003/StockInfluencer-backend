@@ -43,13 +43,14 @@ export const getUsername = async (req, res) => {
 
 export const getPopularTweets = async (req, res) => {
   const { query } = req.params;
+  const { count } = req.params;
   try {
     client.get(
       "https://api.twitter.com/1.1/search/tweets.json",
       {
         q: query,
         result_type: "popular",
-        count: 5,
+        count: count,
       },
       function (error, tweets, response) {
         res.status(200).json(tweets);

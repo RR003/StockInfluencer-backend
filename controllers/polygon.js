@@ -39,7 +39,7 @@ export const getChartData = async (req, res) => {
   stock = stock.toUpperCase();
   let currentDate = new Date();
   let pastDate = new Date();
-  pastDate.setMonth(currentDate.getMonth() - 3);
+  pastDate.setMonth(currentDate.getMonth() - 2);
 
   let stringDate1 =
     "" +
@@ -74,4 +74,41 @@ export const getChartData = async (req, res) => {
 const correct_date = (date) => {
   if (date.toString().length == 2) return date;
   else return "0" + date;
+};
+
+export const getChartDataCrypto = async (req, res) => {
+  let { stock } = req.params;
+  stock = stock.toUpperCase();
+  let currentDate = new Date();
+  let pastDate = new Date();
+  pastDate.setMonth(currentDate.getMonth() - 1);
+
+  let stringDate1 =
+    "" +
+    currentDate.getFullYear() +
+    "-" +
+    month_map[currentDate.getMonth()] +
+    "-" +
+    correct_date(currentDate.getDate());
+
+  let stringDate2 =
+    "" +
+    pastDate.getFullYear() +
+    "-" +
+    month_map[pastDate.getMonth()] +
+    "-" +
+    correct_date(pastDate.getDate());
+
+  try {
+    let { data } = await axios.get(
+      `https://api.polygon.io/v2/aggs/ticker/${stock}/range/1/hour/${stringDate2}/${stringDate1}?adjusted=true&sort=asc&limit=50000&apiKey=${api_key}`
+    );
+    res.status(200).json(data);
+  } catch (e) {
+    console.log("max requests!!!!");
+    const data = {
+      results: "max requests",
+    };
+    res.status(200).json(data);
+  }
 };
