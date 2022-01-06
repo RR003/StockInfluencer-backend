@@ -101,7 +101,7 @@ export const getChartDataCrypto = async (req, res) => {
 
   try {
     let { data } = await axios.get(
-      `https://api.polygon.io/v2/aggs/ticker/${stock}/range/1/hour/${stringDate2}/${stringDate1}?adjusted=true&sort=asc&limit=50000&apiKey=${api_key}`
+      `https://api.polygon.io/v2/aggs/ticker/${stock}/range/15/minute/${stringDate2}/${stringDate1}?adjusted=true&sort=asc&limit=50000&apiKey=${api_key}`
     );
     res.status(200).json(data);
   } catch (e) {
