@@ -59,6 +59,8 @@ export const getMasterInfo = async (req, res) => {
     }
   }
 
+  console.log();
+
   let unixTimeL = chart_data[chart_data.length - 1][0];
   let latestDate = new Date(unixTimeL);
 
@@ -251,7 +253,7 @@ const get3HourChangeCryptoImmediate = async (date, data) => {
     }
   }
 
-  if (price2 === "n/a") return "n/a";
+  if (price2 === "n/a") return "";
   else {
     let priceDifference = ((price2 - price1) / price1) * 100;
     return priceDifference.toFixed(2);
