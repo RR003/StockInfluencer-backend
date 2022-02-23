@@ -14,6 +14,7 @@ import {
   getTempHistoricalData,
   getChartData,
   getChartDataCrypto,
+  getMasterInfo,
 } from "../controllers/polygon.js";
 
 const router = express.Router();
@@ -27,5 +28,6 @@ router.get("/chartdatacrypto/:stock", getChartDataCrypto);
 router.get("/24hrchange/:stock/:date", get24HourChange);
 router.get("/tempchange/:stock/:date", getTempHistoricalData);
 router.get("/getPopularTweets/:query/:count", getPopularTweets);
+router.get("/masterlistcrypto/:stockName", getMasterInfo);
 
 export default router;
