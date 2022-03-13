@@ -34,7 +34,7 @@ export const allWeekChange = async (req, res) => {
   try {
     let tweets = await Tweet.find().sort({ Time: -1 }).limit(600);
     tweets.sort(function (a, b) {
-      return parseFloat(b.ShortTermChange) - parseFloat(a.ShortTermChange);
+      return parseFloat(b.LongTermChange) - parseFloat(a.LongTermChange);
     });
     res.status(201).json(tweets);
   } catch (error) {
