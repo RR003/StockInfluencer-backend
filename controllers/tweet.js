@@ -32,10 +32,10 @@ export const allTimeChange = async (req, res) => {
 
 export const allWeekChange = async (req, res) => {
   try {
-    let timeSort = { Time: -1 };
-    let querySort = { ShortTermChange: -1 };
-    let unfiltered = await Tweet.find().sort(timeSort).limit(500);
-    let tweets = await unfiltered.sort(querySort);
+    let tweets = await Tweet.find().sort({ Time: -1 }).limit(600);
+    tweets.sort(function (a, b) {
+      return parseFloat(b.ShortTermChange) - parseFloat(a.ShortTermChange);
+    });
     res.status(201).json(tweets);
   } catch (error) {
     res.status(409).json({ message: "Something wrong, whoops..." });
