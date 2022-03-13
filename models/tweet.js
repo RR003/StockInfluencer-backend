@@ -8,6 +8,7 @@ const TweetSchema = mongoose.Schema({
   User: { type: String, required: true },
   ShortTermChange: { type: Number, required: true },
   LongTermChange: { type: Number },
+  Magnitude: { type: Number },
 });
 
 const Tweet = mongoose.model("Tweet", TweetSchema);

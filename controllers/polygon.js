@@ -59,8 +59,6 @@ export const getMasterInfo = async (req, res) => {
     }
   }
 
-  console.log();
-
   let unixTimeL = chart_data[chart_data.length - 1][0];
   let latestDate = new Date(unixTimeL);
 
@@ -111,6 +109,7 @@ export const getMasterInfo = async (req, res) => {
     popular_tweet.push(response4);
 
     popular_tweet.push(stockName);
+    popular_tweet.push(Math.abs(response3));
 
     if (response3 === "n/a") noAnalyzedTweet.push(popular_tweet);
     else analyzedTweet.push(popular_tweet);
