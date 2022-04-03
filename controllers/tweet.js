@@ -22,22 +22,24 @@ export const createTweet = async (req, res) => {
 
 export const allTimeChange = async (req, res) => {
   try {
-    let querySort = { LongTermChange: -1 };
-    let tweets = await Tweet.find().limit(100).sort(querySort);
+    let querySort = { Magnitude: -1 };
+    let tweets = await Tweet.find().sort(querySort);
     res.status(201).json(tweets);
   } catch (error) {
+    console.log("error - allTimeChange");
     res.status(409).json({ message: "Something wrong, whoops..." });
   }
 };
 
 export const allWeekChange = async (req, res) => {
   try {
-    let tweets = await Tweet.find().sort({ Time: -1 }).limit(600);
+    let tweets = await Tweet.find().sort({ Time: -1 }).limit(300); // may need to change this paramter
     tweets.sort(function (a, b) {
-      return parseFloat(b.LongTermChange) - parseFloat(a.LongTermChange);
+      return parseFloat(b.Magnitude) - parseFloat(a.Magnitude);
     });
     res.status(201).json(tweets);
   } catch (error) {
+    console.log("error - allWeekChange");
     res.status(409).json({ message: "Something wrong, whoops..." });
   }
 };
